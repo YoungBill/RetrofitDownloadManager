@@ -19,7 +19,7 @@
             android:layout_margin="30dp"
             android:background="@drawable/shape_button"
             android:gravity="center"
-            android:text="下载文件"
+            android:text="@string/download_file"
             android:textColor="#2e2e2e"
             android:textSize="17sp" />
 
@@ -32,7 +32,7 @@
             android:layout_margin="30dp"
             android:background="@drawable/shape_button"
             android:gravity="center"
-            android:text="下载进度"
+            android:text="@string/download_progress"
             android:textColor="#2e2e2e"
             android:textSize="17sp" />
     </RelativeLayout>

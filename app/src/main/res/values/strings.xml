@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RetrofitDownloadManager</string>
+    <string name="download_file">下载文件</string>
+    <string name="download_progress">下载进度</string>
 </resources>

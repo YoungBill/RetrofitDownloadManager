@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStart() {
                 Log.e(TAG, "onStart: ");
-                mProgressTv.setText("开发下载");
+                mProgressTv.setText("开始下载");
             }
 
             @Override
