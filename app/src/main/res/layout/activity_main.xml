@@ -12,27 +12,27 @@
         android:layout_centerVertical="true">
 
         <Button
-            android:id="@+id/btn_download_picture"
+            android:id="@+id/downloadFileBt"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="30dp"
             android:background="@drawable/shape_button"
             android:gravity="center"
-            android:text="下载图片"
+            android:text="下载文件"
             android:textColor="#2e2e2e"
             android:textSize="17sp" />
 
-        <Button
-            android:id="@+id/btn_download_video"
+        <TextView
+            android:id="@+id/progressTv"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@+id/btn_download_picture"
+            android:layout_below="@+id/downloadFileBt"
             android:layout_margin="30dp"
             android:background="@drawable/shape_button"
             android:gravity="center"
-            android:text="下载视频"
+            android:text="下载进度"
             android:textColor="#2e2e2e"
             android:textSize="17sp" />
     </RelativeLayout>
