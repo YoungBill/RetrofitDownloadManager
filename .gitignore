@@ -8,3 +8,4 @@ tatus
 gradle/
 *.DS_Store
 release/
+key/

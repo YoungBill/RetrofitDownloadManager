@@ -19,3 +19,27 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Retrofit begin
+-dontwarn retrofit2.**
+-dontwarn org.codehaus.mojo.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+-keepattributes *Annotation*
+-keepattributes RuntimeVisibleAnnotations
+-keepattributes RuntimeInvisibleAnnotations
+-keepattributes RuntimeVisibleParameterAnnotations
+-keepattributes RuntimeInvisibleParameterAnnotations
+-keepattributes EnclosingMethod
+-keepclasseswithmembers class * {
+@retrofit2.* <methods>;
+}
+-keepclasseswithmembers interface * {
+@retrofit2.* <methods>;
+}
+-dontwarn com.squareup.okhttp.**
+-keep class iphone.x.live.wallpaper.screen.lock.bean.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**
+# Retrofit end

@@ -10,10 +10,20 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        sign {
+            keyAlias 'v5'
+            keyPassword 'taochenv5'
+            storeFile file("../key/tc.jks")
+            storePassword 'taochenv5'
+            v2SigningEnabled false
+        }
+    }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.sign
         }
     }
 }

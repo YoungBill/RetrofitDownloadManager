@@ -1,5 +1,7 @@
 package com.android.retrofitdownloadmanager.utils;
 
+import android.content.Context;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -76,5 +78,13 @@ public class FileUtils {
             }
         }
         return true;
+    }
+
+    public static String readyForThemeFolder(Context context) {
+        File themeFolder = new File(context.getFilesDir(), ".theme");
+        if (!themeFolder.exists()) {
+            themeFolder.mkdirs();
+        }
+        return themeFolder.getAbsolutePath();
     }
 }
