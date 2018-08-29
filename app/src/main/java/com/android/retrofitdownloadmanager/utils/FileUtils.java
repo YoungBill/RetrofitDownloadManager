@@ -81,7 +81,7 @@ public class FileUtils {
     }
 
     public static String readyForThemeFolder(Context context) {
-        File themeFolder = new File(context.getFilesDir(), ".theme");
+        File themeFolder = new File(context.getFilesDir(), "theme");
         if (!themeFolder.exists()) {
             themeFolder.mkdirs();
         }

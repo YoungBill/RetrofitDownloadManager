@@ -15,6 +15,7 @@ import com.android.retrofitdownloadmanager.utils.DownloadUtils;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String DOWNLOAD_THEME_PACKAGENAME = "com.a.b.c";
     private static final String DOWNLOAD_FILE_URL = "http://d.c-launcher.com/themes/cloud/c9c18d678d86c9760ec8ead191fad07ad4b1c855/out/googlePlay/assets/320.amr";
 
     private Button mDownloadFileBt;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void downloadFile() {
         DownloadUtils downloadUtils = new DownloadUtils(MainActivity.this);
-        downloadUtils.downloadFile(DOWNLOAD_FILE_URL, new DownloadListener() {
+        downloadUtils.downloadFile(DOWNLOAD_THEME_PACKAGENAME, DOWNLOAD_FILE_URL, new DownloadListener() {
             @Override
             public void onStart() {
                 Log.e(TAG, "onStart: ");

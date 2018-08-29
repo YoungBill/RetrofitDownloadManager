@@ -47,48 +47,46 @@ public class DownloadUtils {
         mHandler = new Handler();
     }
 
-    public void downloadFile(String url, final DownloadListener downloadListener) {
+    public void downloadFile(String themePackageName, String url, final DownloadListener downloadListener) {
         //通过Url得到保存到本地的文件名
-        String name = url;
         String fileFolder = FileUtils.readyForThemeFolder(mContext);
-        int i = name.lastIndexOf('/');//一定是找最后一个'/'出现的位置
-        if (i != -1) {
-            name = name.substring(i);
-            mFilePath = fileFolder + name;
+        fileFolder = fileFolder + File.separator + themePackageName;
+        File themeFolder = new File(fileFolder);
+        if (!themeFolder.exists()) {
+            themeFolder.mkdirs();
         }
+        mFilePath = themeFolder + File.separator + "theme.zip";
         if (TextUtils.isEmpty(mFilePath)) {
             Log.e(TAG, "downloadVideo: 存储路径为空了");
             return;
         }
         //建立一个文件
         mFile = new File(mFilePath);
-        if (FileUtils.createOrExistsFile(mFile)) {
-            if (mApi == null) {
-                Log.e(TAG, "downloadVideo: 下载接口为空了");
-                return;
-            }
-            Call<ResponseBody> call = mApi.downloadFile(url);
-            call.enqueue(new Callback<ResponseBody>() {
-                @Override
-                public void onResponse(@NonNull Call<ResponseBody> call, @NonNull final Response<ResponseBody> response) {
-                    //下载文件放在子线程
-                    mThread = new Thread() {
-                        @Override
-                        public void run() {
-                            super.run();
-                            //保存到本地
-                            writeFile2Disk(response, mFile, downloadListener);
-                        }
-                    };
-                    mThread.start();
-                }
-
-                @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    downloadListener.onFailure("网络错误！");
-                }
-            });
+        if (mApi == null) {
+            Log.e(TAG, "downloadVideo: 下载接口为空了");
+            return;
         }
+        Call<ResponseBody> call = mApi.downloadFile(url);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull final Response<ResponseBody> response) {
+                //下载文件放在子线程
+                mThread = new Thread() {
+                    @Override
+                    public void run() {
+                        super.run();
+                        //保存到本地
+                        writeFile2Disk(response, mFile, downloadListener);
+                    }
+                };
+                mThread.start();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                downloadListener.onFailure("网络错误！");
+            }
+        });
     }
 
     private void writeFile2Disk(Response<ResponseBody> response, File file, final DownloadListener downloadListener) {
