@@ -11,30 +11,44 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true">
 
-        <Button
-            android:id="@+id/downloadFileBt"
-            style="?android:attr/borderlessButtonStyle"
+        <FrameLayout
+            android:id="@+id/f1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="30dp"
-            android:background="@drawable/shape_button"
-            android:gravity="center"
-            android:text="@string/download_file"
-            android:textColor="#2e2e2e"
-            android:textSize="17sp" />
+            android:layout_margin="30dp">
+
+            <Button
+                android:id="@+id/downloadFileBt"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_button"
+                android:gravity="center"
+                android:text="下载文件"
+                android:textColor="#2e2e2e"
+                android:textSize="17sp" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:progressDrawable="@drawable/shape_progress"
+                android:visibility="gone" />
+        </FrameLayout>
 
         <TextView
             android:id="@+id/progressTv"
-            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@+id/downloadFileBt"
+            android:layout_below="@id/f1"
             android:layout_margin="30dp"
             android:background="@drawable/shape_button"
             android:gravity="center"
-            android:text="@string/download_progress"
+            android:text="下载进度"
             android:textColor="#2e2e2e"
             android:textSize="17sp" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
