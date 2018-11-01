@@ -1,54 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.android.retrofitdownloadmanager.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true">
+    <FrameLayout
+        android:id="@+id/f1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="30dp">
 
-        <FrameLayout
-            android:id="@+id/f1"
+        <Button
+            android:id="@+id/downloadFileBt"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="30dp">
-
-            <Button
-                android:id="@+id/downloadFileBt"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_button"
-                android:gravity="center"
-                android:text="下载文件"
-                android:textColor="#2e2e2e"
-                android:textSize="17sp" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:progressDrawable="@drawable/shape_progress"
-                android:visibility="gone" />
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/progressTv"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/f1"
-            android:layout_margin="30dp"
+            android:layout_height="match_parent"
             android:background="@drawable/shape_button"
             android:gravity="center"
-            android:text="下载进度"
+            android:text="下载文件"
             android:textColor="#2e2e2e"
             android:textSize="17sp" />
 
-    </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/downloadProgressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:progressDrawable="@drawable/shape_progress"
+            android:visibility="gone" />
+    </FrameLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/downloadProgressTv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/f1"
+        android:layout_margin="30dp"
+        android:background="@drawable/shape_button"
+        android:gravity="center"
+        android:text="下载进度"
+        android:textColor="#2e2e2e"
+        android:textSize="17sp" />
+
+    <FrameLayout
+        android:id="@+id/f2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="30dp">
+
+        <Button
+            android:id="@+id/uploadFileBt"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_button"
+            android:gravity="center"
+            android:text="上传文件"
+            android:textColor="#2e2e2e"
+            android:textSize="17sp" />
+
+        <ProgressBar
+            android:id="@+id/uploadProgressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:progressDrawable="@drawable/shape_progress"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/uploadProgressTv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/f1"
+        android:layout_margin="30dp"
+        android:background="@drawable/shape_button"
+        android:gravity="center"
+        android:text="上传进度"
+        android:textColor="#2e2e2e"
+        android:textSize="17sp" />
+
+</LinearLayout>

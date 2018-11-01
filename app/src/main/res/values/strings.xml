@@ -2,4 +2,5 @@
     <string name="app_name">RetrofitDownloadManager</string>
     <string name="download_file">下载文件</string>
     <string name="download_progress">下载进度</string>
+    <string name="error_gif">x or y bound size should be at least %1$dpx and file size should be no more than %2$sM</string>
 </resources>
