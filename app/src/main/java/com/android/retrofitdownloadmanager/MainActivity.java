@@ -1,5 +1,6 @@
 package com.android.retrofitdownloadmanager;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,6 +62,19 @@ public class MainActivity extends AppCompatActivity {
                 uploadFile();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_CHOOSE && resultCode == RESULT_OK) {
+            List<String> photos = Matisse.obtainPathResult(data);
+            for (String photoPath : photos) {
+                Log.d(TAG, "photo: " + photoPath);
+            }
+            // TODO: 18-11-1 retrofit上传逻辑
+
+        }
     }
 
     private void downloadFile() {
